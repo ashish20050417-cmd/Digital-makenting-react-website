@@ -44,165 +44,303 @@ export default function Home() {
     <div className="bg-[#f8f9fc] min-h-screen">
       <Navbar />
 
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div className="inline-block px-5 py-2 rounded-full bg-blue-50 border text-blue-600 font-medium mb-6">
-            We Build Brands. Drive Traffic. Deliver Results.
+      {/* ================= HERO SECTION ================= */}
+
+      <section className="bg-[#f8f9fc] border-t">
+        <div className="max-w-[1450px] mx-auto px-8 py-14 grid lg:grid-cols-2 gap-14 items-center">
+          {/* LEFT */}
+
+          <div>
+            {/* Badge */}
+
+            <div className="inline-flex items-center px-6 py-3 rounded-full border border-blue-200 bg-gradient-to-r from-blue-50 to-purple-50">
+              <span className="text-blue-700 font-medium">
+                We Build Brands.
+              </span>
+
+              <span className="mx-2 text-gray-400">•</span>
+
+              <span className="text-blue-700 font-medium">Drive Traffic.</span>
+
+              <span className="mx-2 text-gray-400">•</span>
+
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">
+                Deliver Results.
+              </span>
+            </div>
+
+            {/* Heading */}
+
+            <h1 className="mt-8 text-[72px] leading-[78px] font-extrabold text-[#071B52]">
+              Smart Solutions For
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Digital Success
+              </span>
+            </h1>
+
+            {/* Description */}
+
+            <p className="mt-8 text-[22px] leading-10 text-gray-600 max-w-xl">
+              We are a full-service digital marketing agency offering Web
+              Development, E-commerce, App Development, SEO, Local SEO, Graphic
+              Designing and SaaS Applications to help your business grow online.
+            </p>
+
+            {/* Buttons */}
+
+            <div className="flex gap-5 mt-10">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-9 py-4 rounded-xl font-semibold shadow-lg">
+                Our Services →
+              </button>
+
+              <button className="border border-blue-300 text-blue-700 px-9 py-4 rounded-xl font-semibold">
+                Contact Us →
+              </button>
+            </div>
           </div>
 
-          <h1 className="text-6xl lg:text-7xl font-extrabold leading-tight text-slate-900">
-            Smart Solutions For
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Digital Success
-            </span>
-          </h1>
+          {/* RIGHT */}
 
-          <p className="mt-6 text-lg text-gray-600 leading-8">
-            Complete digital marketing, development and growth solutions
-            designed to help businesses dominate online.
-          </p>
-
-          <div className="flex flex-wrap gap-4 mt-8">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold">
-              Our Services →
-            </button>
-
-            <button className="border border-blue-300 text-blue-600 px-8 py-4 rounded-xl font-semibold">
-              Contact Us →
-            </button>
+          <div className="flex justify-end">
+            <img src="/hero.png" alt="Hero" className="w-full max-w-[760px]" />
           </div>
+        </div>
+      </section>
+      {/* ================= STATS ================= */}
 
-          <div className="grid grid-cols-3 gap-8 mt-14">
+      <section className="max-w-[1450px] mx-auto px-8 pb-12">
+        <div className="flex flex-wrap items-center justify-start gap-20">
+          <div className="flex items-center gap-5">
+            <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-3xl">
+              👥
+            </div>
+
             <div>
-              <h3 className="text-4xl font-bold text-blue-600">250+</h3>
+              <h2 className="text-4xl font-bold text-blue-600">250+</h2>
+
               <p className="text-gray-600">Happy Clients</p>
             </div>
+          </div>
 
-            <div>
-              <h3 className="text-4xl font-bold text-blue-600">500+</h3>
-              <p className="text-gray-600">Projects Completed</p>
+          <div className="w-px h-14 bg-gray-300"></div>
+
+          <div className="flex items-center gap-5">
+            <div className="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center text-3xl">
+              🏆
             </div>
 
             <div>
-              <h3 className="text-4xl font-bold text-blue-600">5+</h3>
+              <h2 className="text-4xl font-bold text-blue-600">500+</h2>
+
+              <p className="text-gray-600">Projects Completed</p>
+            </div>
+          </div>
+
+          <div className="w-px h-14 bg-gray-300"></div>
+
+          <div className="flex items-center gap-5">
+            <div className="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center text-3xl">
+              🎖️
+            </div>
+
+            <div>
+              <h2 className="text-4xl font-bold text-blue-600">5+</h2>
+
               <p className="text-gray-600">Years Experience</p>
             </div>
           </div>
         </div>
-<div className="relative flex justify-center">
-  <img
-    src="/hero.png"
-    alt="Digital Growth Agency"
-    className="w-full max-w-3xl"
-   
-  />
-</div>
       </section>
+      {/* ================= SERVICES TITLE ================= */}
 
-      {/* SERVICES */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="text-center mb-14">
-          <p className="text-blue-600 uppercase font-semibold">
-            Our Services
-          </p>
+      <section className="max-w-[1450px] mx-auto px-8 pt-10 pb-6 text-center">
+        <p className="uppercase tracking-widest text-blue-600 font-semibold">
+          OUR SERVICES
+        </p>
 
-          <h2 className="text-5xl font-bold mt-3">
-            Complete Digital Solutions Under One Roof
-          </h2>
-        </div>
+        <h2 className="text-[52px] font-bold text-[#071B52] mt-3">
+          Complete Digital Solutions Under One Roof
+        </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="w-24 h-1 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-5"></div>
+      </section>
+      {/* ================= SERVICES ================= */}
+
+      <section className="max-w-[1450px] mx-auto px-8 pb-16">
+        <div className="grid lg:grid-cols-7 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition"
+              className="bg-white border border-gray-200 rounded-[22px] p-7 text-center hover:-translate-y-2 hover:shadow-xl duration-300"
             >
-              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center text-3xl mb-5">
+              <div className="w-20 h-20 rounded-full mx-auto mb-6 bg-blue-100 flex items-center justify-center text-4xl">
                 {service.icon}
               </div>
 
-              <h3 className="text-xl font-bold mb-3">
+              <h3 className="text-[22px] font-bold text-[#071B52]">
                 {service.title}
               </h3>
 
-              <p className="text-gray-600">
+              <p className="text-gray-500 mt-4 leading-7 text-[15px]">
                 {service.desc}
               </p>
+
+              <button className="mt-6 text-blue-600 font-semibold">
+                Learn More →
+              </button>
             </div>
           ))}
         </div>
       </section>
+      {/* ================= WHY CHOOSE US ================= */}
 
-      {/* WHY CHOOSE US */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <img
-            src="/team.jpg"
-            alt="Team"
-            className="rounded-3xl shadow-xl"
-          />
+      <section className="max-w-[1450px] mx-auto px-8 py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Image */}
 
           <div>
-            <h2 className="text-5xl font-bold mb-6">
-              Why Choose Digital Growth?
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200"
+              alt="Team"
+              className="rounded-[30px] shadow-xl w-full"
+            />
+          </div>
+
+          {/* Right Content */}
+
+          <div>
+            <span className="text-blue-600 uppercase font-semibold tracking-wider">
+              Why Choose Us
+            </span>
+
+            <h2 className="text-[52px] font-bold text-[#071B52] mt-4 leading-tight">
+              We Build Digital Experiences That Drive Results
             </h2>
 
-            <div className="space-y-6">
-              <div>✅ Experienced Team</div>
-              <div>✅ Data Driven Marketing</div>
-              <div>✅ Transparent Reporting</div>
-              <div>✅ Result Focused Strategy</div>
-            </div>
-          </div>
-        </div>
-      </section>
+            <p className="text-gray-600 text-xl leading-9 mt-6">
+              We combine creativity, technology and strategy to deliver
+              websites, applications and marketing solutions that help
+              businesses grow faster.
+            </p>
 
-      {/* TESTIMONIALS */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center text-5xl font-bold mb-12">
-            What Clients Say
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {["Amit", "Rahul", "Priya"].map((name) => (
-              <div
-                key={name}
-                className="bg-gray-50 rounded-3xl p-8"
-              >
-                <div className="text-yellow-500 text-xl mb-4">
-                  ★★★★★
+            <div className="mt-10 space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl">
+                  ✔
                 </div>
 
-                <p className="text-gray-600">
-                  Excellent service and great results for our business.
-                </p>
-
-                <h4 className="font-bold mt-4">
-                  {name}
-                </h4>
+                <span className="text-xl font-semibold text-[#071B52]">
+                  Experienced Professionals
+                </span>
               </div>
-            ))}
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl">
+                  ✔
+                </div>
+
+                <span className="text-xl font-semibold text-[#071B52]">
+                  Creative & Modern Designs
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl">
+                  ✔
+                </div>
+
+                <span className="text-xl font-semibold text-[#071B52]">
+                  Result Driven Strategy
+                </span>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-xl">
+                  ✔
+                </div>
+
+                <span className="text-xl font-semibold text-[#071B52]">
+                  Dedicated Customer Support
+                </span>
+              </div>
+            </div>
+
+            <button className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 duration-300">
+              Learn More →
+            </button>
           </div>
         </div>
       </section>
+      {/* ================= WHY CHOOSE US STRIP ================= */}
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 text-center">
-          <h2 className="text-5xl font-bold">
-            Ready To Grow Your Business?
-          </h2>
+      <section className="max-w-[1450px] mx-auto px-8 pb-20">
+        <div className="bg-[#051B5A] rounded-[24px] px-10 py-10">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+            {/* Item 1 */}
 
-          <p className="mt-4 text-lg">
-            Let's build something amazing together.
-          </p>
+            <div className="flex items-center gap-5">
+              <div className="text-6xl text-blue-500">🛡️</div>
 
-          <button className="mt-8 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold">
-            Get Started
-          </button>
+              <div>
+                <h3 className="text-white text-2xl font-bold">
+                  Quality & Reliability
+                </h3>
+
+                <p className="text-blue-100 mt-2 leading-7">
+                  We deliver high-quality solutions you can rely on.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+
+            <div className="flex items-center gap-5 border-l border-blue-800 pl-8">
+              <div className="text-6xl text-blue-500">🚀</div>
+
+              <div>
+                <h3 className="text-white text-2xl font-bold">
+                  Performance Driven
+                </h3>
+
+                <p className="text-blue-100 mt-2 leading-7">
+                  We focus on performance to maximize your growth.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+
+            <div className="flex items-center gap-5 border-l border-blue-800 pl-8">
+              <div className="text-6xl text-blue-500">🎧</div>
+
+              <div>
+                <h3 className="text-white text-2xl font-bold">
+                  Dedicated Support
+                </h3>
+
+                <p className="text-blue-100 mt-2 leading-7">
+                  Our support team is always here to help you.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 4 */}
+
+            <div className="flex items-center gap-5 border-l border-blue-800 pl-8">
+              <div className="text-6xl text-green-400">✅</div>
+
+              <div>
+                <h3 className="text-white text-2xl font-bold">
+                  On-Time Delivery
+                </h3>
+
+                <p className="text-blue-100 mt-2 leading-7">
+                  We value time and deliver projects on schedule.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
