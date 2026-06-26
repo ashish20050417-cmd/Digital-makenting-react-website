@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -90,13 +91,17 @@ export default function Home() {
             {/* Buttons */}
 
             <div className="flex gap-5 mt-10">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-9 py-4 rounded-xl font-semibold shadow-lg">
-                Our Services →
-              </button>
+              <Link to="/services">
+                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-9 py-4 rounded-xl font-semibold shadow-lg hover:scale-105 duration-300">
+                  Our Services →
+                </button>
+              </Link>
 
-              <button className="border border-blue-300 text-blue-700 px-9 py-4 rounded-xl font-semibold">
-                Contact Us →
-              </button>
+              <Link to="/contact">
+                <button className="border border-blue-300 text-blue-700 px-9 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white duration-300">
+                  Contact Us →
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -131,7 +136,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="text-4xl font-bold text-blue-600">500+</h2>
+              <h2 className="text-4xl font-bold text-blue-600">100+</h2>
 
               <p className="text-gray-600">Projects Completed</p>
             </div>
@@ -145,7 +150,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="text-4xl font-bold text-blue-600">5+</h2>
+              <h2 className="text-4xl font-bold text-blue-600">3+</h2>
 
               <p className="text-gray-600">Years Experience</p>
             </div>
@@ -170,9 +175,10 @@ export default function Home() {
       <section className="max-w-[1450px] mx-auto px-8 pb-16">
         <div className="grid lg:grid-cols-7 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
-            <div
+            <Link
               key={index}
-              className="bg-white border border-gray-200 rounded-[22px] p-7 text-center hover:-translate-y-2 hover:shadow-xl duration-300"
+              to={service.title === "E-Commerce" ? "/ecommerce" : "/services"}
+              className="block bg-white border border-gray-200 rounded-[22px] p-7 text-center hover:-translate-y-2 hover:shadow-xl duration-300"
             >
               <div className="w-20 h-20 rounded-full mx-auto mb-6 bg-blue-100 flex items-center justify-center text-4xl">
                 {service.icon}
@@ -186,10 +192,13 @@ export default function Home() {
                 {service.desc}
               </p>
 
-              <button className="mt-6 text-blue-600 font-semibold">
+              <button
+                type="button"
+                className="mt-6 text-blue-600 font-semibold cursor-pointer"
+              >
                 Learn More →
               </button>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -265,10 +274,10 @@ export default function Home() {
                 </span>
               </div>
             </div>
-
+            {/* 
             <button className="mt-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-4 rounded-xl font-semibold hover:scale-105 duration-300">
               Learn More →
-            </button>
+            </button> */}
           </div>
         </div>
       </section>

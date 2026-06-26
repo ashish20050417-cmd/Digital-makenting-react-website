@@ -144,7 +144,7 @@ export default function About() {
                   💼
                 </div>
 
-                <h3 className="text-4xl font-bold text-blue-600 mt-5">500+</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mt-5">100+</h3>
 
                 <p className="text-gray-600 mt-2">Projects Completed</p>
               </div>
@@ -154,7 +154,7 @@ export default function About() {
                   🏆
                 </div>
 
-                <h3 className="text-4xl font-bold text-blue-600 mt-5">5+</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mt-5">3+</h3>
 
                 <p className="text-gray-600 mt-2">Years Experience</p>
               </div>
@@ -164,7 +164,7 @@ export default function About() {
                   🌍
                 </div>
 
-                <h3 className="text-4xl font-bold text-blue-600 mt-5">20+</h3>
+                <h3 className="text-4xl font-bold text-blue-600 mt-5">5+</h3>
 
                 <p className="text-gray-600 mt-2">Countries Served</p>
               </div>

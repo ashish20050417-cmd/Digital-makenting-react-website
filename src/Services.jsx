@@ -1,87 +1,285 @@
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
+
 export default function Services() {
+  const [selectedService, setSelectedService] = useState(null);
+  const location = useLocation();
   const firstRow = [
     {
+      slug: "web-development",
       title: "Web Development",
       icon: "💻",
       image:
         "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900",
       desc: "Custom responsive websites built with modern technologies.",
+
       points: [
         "Responsive Design",
         "React Development",
         "Admin Panel",
         "Maintenance",
       ],
+
+      details: {
+        features: [
+          "React, Next.js & Vue.js Development",
+          "Progressive Web Apps (PWA)",
+          "RESTful & GraphQL API Integration",
+          "Server-Side Rendering (SSR)",
+        ],
+
+        technologies: [
+          "React",
+          "Next.js",
+          "Node.js",
+          "TypeScript",
+          "Tailwind CSS",
+        ],
+      },
     },
 
     {
+      slug: "e-commerce",
       title: "E-Commerce",
       icon: "🛒",
       image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=900",
+
       desc: "Professional online stores with secure payment integration.",
+
       points: [
         "Shopping Cart",
         "Payment Gateway",
         "Order Tracking",
         "Inventory",
       ],
-    },
 
+      details: {
+        features: [
+          "iOS & Android Native Apps",
+          "React Native & Flutter",
+          "Cross-Platform Development",
+          "App Store Deployment",
+        ],
+
+        technologies: [
+          "React Native",
+          "Flutter",
+          "Swift",
+          "Kotlin",
+          "Firebase",
+        ],
+      },
+    },
     {
+      slug: "app-development",
       title: "App Development",
       icon: "📱",
       image:
         "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900",
+
       desc: "Android & iOS applications with beautiful UI/UX.",
+
       points: ["Android", "iOS", "Flutter", "Maintenance"],
+
+      details: {
+        features: [
+          "User Research & Analysis",
+          "Wireframing & Prototyping",
+          "Visual Design & Branding",
+          "Design Systems",
+        ],
+
+        technologies: ["Figma", "Adobe XD", "Sketch", "InVision", "Framer"],
+      },
     },
   ];
   const secondRow = [
     {
+      slug: "seo-services",
       title: "SEO Services",
       icon: "📈",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900",
+
       desc: "Boost your Google rankings and increase organic traffic.",
+
       points: [
         "On-Page SEO",
         "Off-Page SEO",
         "Keyword Research",
         "Technical SEO",
       ],
+
+      details: {
+        features: [
+          "On-Page Optimization",
+          "Technical SEO Audit",
+          "Keyword Research",
+          "Competitor Analysis",
+        ],
+
+        technologies: [
+          "Google Search Console",
+          "Google Analytics",
+          "Ahrefs",
+          "SEMrush",
+          "Screaming Frog",
+        ],
+      },
     },
 
     {
+      slug: "local-seo",
       title: "Local SEO",
       icon: "📍",
       image:
         "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900",
+
       desc: "Get discovered by customers in your local area.",
+
       points: [
         "Google Business",
         "Local Citations",
         "Location Ranking",
         "Monthly Reports",
       ],
+
+      details: {
+        features: [
+          "Google Business Profile",
+          "Location Optimization",
+          "Citation Building",
+          "Review Management",
+        ],
+
+        technologies: [
+          "Google Maps",
+          "Google Business",
+          "BrightLocal",
+          "Whitespark",
+          "Moz Local",
+        ],
+      },
     },
 
     {
+      slug: "graphic-designing",
       title: "Graphic Designing",
       icon: "🎨",
       image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900",
+
       desc: "Creative branding and eye-catching visual designs.",
+
       points: [
         "Logo Design",
         "Banner Design",
         "Social Media Posts",
         "Brand Identity",
       ],
+
+      details: {
+        features: [
+          "Logo & Branding",
+          "Social Media Creatives",
+          "Marketing Materials",
+          "Print Design",
+        ],
+
+        technologies: [
+          "Adobe Photoshop",
+          "Adobe Illustrator",
+          "Figma",
+          "Canva Pro",
+          "CorelDRAW",
+        ],
+      },
     },
   ];
+  useEffect(() => {
+  if (location.state?.service) {
+    const allServices = [
+      ...firstRow,
+      ...secondRow,
+      {
+        slug: "saas-applications",
+        title: "SaaS Applications",
+      },
+    ];
+
+    const service = allServices.find(
+      (item) => item.slug === location.state.service
+    );
+
+    if (service) {
+      setSelectedService(service);
+    }
+  }
+}, [location.state]);
+  if (selectedService) {
+  return (
+    <div className="bg-[#F8FAFC] min-h-screen">
+      <Navbar />
+
+      <div className="max-w-7xl mx-auto px-8 py-16">
+        <button
+          onClick={() => setSelectedService(null)}
+          className="text-blue-600 font-semibold mb-8"
+        >
+          ← Back to Services
+        </button>
+
+        <img
+          src={selectedService.image}
+          alt={selectedService.title}
+          className="w-full h-[450px] object-cover rounded-3xl"
+        />
+
+        <h1 className="text-5xl font-bold text-[#071B52] mt-8">
+          {selectedService.title}
+        </h1>
+
+        <p className="text-xl text-gray-600 mt-5">
+          {selectedService.desc}
+        </p>
+
+        <h2 className="text-3xl font-bold mt-10">
+          Key Features
+        </h2>
+
+        <div className="mt-5 space-y-3">
+          {selectedService.details?.features.map((item, i) => (
+            <div key={i} className="flex gap-3">
+              <span className="text-green-600">✔</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-3xl font-bold mt-10">
+          Technologies
+        </h2>
+
+        <div className="flex flex-wrap gap-3 mt-5">
+          {selectedService.details?.technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="bg-blue-100 text-blue-700 px-4 py-2 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
 
   return (
     <div className="bg-[#F8FAFC] min-h-screen">
@@ -109,11 +307,11 @@ export default function Services() {
       {/* ================= FIRST ROW ================= */}
 
       <section className="max-w-[1450px] mx-auto px-8 pb-20">
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {firstRow.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-[28px] overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-300"
+              className="break-inside-avoid mb-8 bg-white rounded-[28px] overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-300"
             >
               <img
                 src={item.image}
@@ -141,10 +339,13 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-
-                <button className="mt-8 text-blue-600 font-semibold hover:underline">
-                  Learn More →
-                </button>
+                <button
+  onClick={() => setSelectedService(item)}
+  className="mt-8 text-blue-600 font-semibold hover:text-blue-800 transition"
+>
+  Learn More →
+</button>
+        
               </div>
             </div>
           ))}
@@ -153,11 +354,11 @@ export default function Services() {
       {/* ================= SECOND ROW ================= */}
 
       <section className="max-w-[1450px] mx-auto px-8 pb-20">
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {secondRow.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-[28px] overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-300"
+              className="break-inside-avoid mb-8 bg-white rounded-[28px] overflow-hidden shadow-lg hover:-translate-y-2 hover:shadow-2xl duration-300"
             >
               <img
                 src={item.image}
@@ -186,9 +387,13 @@ export default function Services() {
                   ))}
                 </div>
 
-                <button className="mt-8 text-orange-500 font-semibold hover:underline">
-                  Learn More →
-                </button>
+                <button
+  onClick={() => setSelectedService(item)}
+  className="mt-8 text-blue-600 font-semibold hover:text-blue-800 transition"
+>
+  Learn More →
+</button>
+                
               </div>
             </div>
           ))}
@@ -247,9 +452,11 @@ export default function Services() {
                 </div>
               </div>
 
-              <button className="mt-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:scale-105 duration-300">
-                Learn More →
-              </button>
+              <Link to="/contact">
+                <button className="mt-8 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:scale-105 duration-300">
+                  Learn More →
+                </button>
+              </Link>
             </div>
 
             {/* Right Image */}

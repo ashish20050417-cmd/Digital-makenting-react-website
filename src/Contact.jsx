@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 
 export default function Contact() {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,29 +18,77 @@ export default function Contact() {
     service: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    if (name === "phone") {
+      const onlyNumbers = value.replace(/\D/g, "");
+
+      setFormData((prev) => ({
+        ...prev,
+        phone: onlyNumbers,
+      }));
+
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = {};
 
-    if (formData.phone.length !== 10) {
-      alert("Please enter a valid phone number");
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (formData.phone.length !== 10) {
+      newErrors.phone = "Phone number must be 10 digits";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.service) {
+      newErrors.service = "Please select a service";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
+    setErrors({});
+
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/contact",
-        formData
+        "http://localhost:8000/api/contact",
+        formData,
       );
 
-      alert(res.data.message);
+      setSuccessMessage("✅ Message sent successfully!");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
 
       setFormData({
         name: "",
@@ -51,10 +98,21 @@ export default function Contact() {
         service: "",
         message: "",
       });
-
     } catch (err) {
-      console.log(err);
-      alert("Failed to send message");
+      console.error("Error:", err);
+
+      if (err.response) {
+        console.log("Status:", err.response.status);
+        console.log("Response:", err.response.data);
+
+        alert(err.response.data.message);
+      } else if (err.request) {
+        console.log("No response from server");
+        alert("Server is not responding");
+      } else {
+        console.log(err.message);
+        alert(err.message);
+      }
     }
   };
 
@@ -102,9 +160,8 @@ export default function Contact() {
                   </h3>
 
                   <p className="text-gray-600 mt-1">
-                    123, Business Street,
-                    <br />
-                    New York, NY 10001, USA
+                    H8HQ+MX6 Krishna Complex, Maharaja Agrasen Marg, <br />
+                    Nithari Village, Sector 31, Noida, Uttar Pradesh 201303
                   </p>
                 </div>
               </div>
@@ -117,7 +174,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-bold text-2xl text-[#071B52]">Call Us</h3>
 
-                  <p className="text-gray-600 mt-1">+1 (234) 567-8900</p>
+                  <p className="text-gray-600 mt-1">+91 92634 67595</p>
                 </div>
               </div>
 
@@ -132,7 +189,7 @@ export default function Contact() {
                   </h3>
 
                   <p className="text-gray-600 mt-1">
-                    info@digitalgrowthagency.com
+                    sharadprofessional123@gmail.com
                   </p>
                 </div>
               </div>
@@ -169,63 +226,89 @@ export default function Contact() {
               possible.
             </p>
 
-            <form
-  className="space-y-6"
-  onSubmit={handleSubmit}
->
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Row 1 */}
 
               <div className="grid md:grid-cols-2 gap-5">
-                <input
-  type="text"
-  name="name"
-  value={formData.name}
-  onChange={handleChange}
-  placeholder="Your Name *"
-  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
-/>
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name *"
+                    className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
+                  />
 
-                <input
-  type="email"
-  name="email"
-  value={formData.email}
-  onChange={handleChange}
-  placeholder="Your Email *"
-  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
-/>
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your Email *"
+                    className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
+                  />
+
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
+                </div>
               </div>
-
               {/* Row 2 */}
 
               <div className="grid md:grid-cols-2 gap-5">
-              <input
-  type="tel"
-  name="phone"
-  value={formData.phone}
-  maxLength={10}
-  onChange={handleChange}
-  placeholder="Phone Number"
-  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
-/>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  maxLength={10}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  placeholder="Phone Number"
+                  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
 
                 <input
-  type="text"
-  name="subject"
-  value={formData.subject}
-  onChange={handleChange}
-  placeholder="Subject"
-  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
-/>
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  placeholder="Subject"
+                  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
+                />
+                {errors.subject && (
+                  <p className="text-red-500 text-sm mt-1">{errors.subject}</p>
+                )}
               </div>
 
               {/* Services */}
 
-             <select
-  name="service"
-  value={formData.service}
-  onChange={handleChange}
-  className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
->
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                className="w-full h-16 border border-gray-200 rounded-xl px-5 outline-none focus:border-blue-600"
+              >
                 <option value="">Services You're Interested In</option>
 
                 <option>Web Development</option>
@@ -237,18 +320,32 @@ export default function Contact() {
                 <option>Graphic Designing</option>
 
                 <option>SaaS Applications</option>
+
+                <option>Al&ML</option>
+
+                <option> Data science</option>
               </select>
+              {errors.service && (
+                <p className="text-red-500 text-sm mt-1">{errors.service}</p>
+              )}
 
               {/* Message */}
 
-             <textarea
-  rows="6"
-  name="message"
-  value={formData.message}
-  onChange={handleChange}
-  placeholder="Your Message *"
-  className="w-full border border-gray-200 rounded-xl p-5 outline-none resize-none focus:border-blue-600"
-></textarea>
+              <textarea
+                rows="6"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                placeholder="Your Message *"
+                className="w-full border border-gray-200 rounded-xl p-5 outline-none resize-none focus:border-blue-600"
+              ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+              )}
 
               {/* Checkbox */}
 
@@ -271,12 +368,17 @@ export default function Contact() {
 
               {/* Button */}
 
-            <button
-  type="submit"
-  className="w-full h-16 rounded-xl text-white text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl duration-300"
->
-  Send Message →
-</button>
+              <button
+                type="submit"
+                className="w-full h-16 rounded-xl text-white text-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl duration-300"
+              >
+                Send Message →
+              </button>
+              {successMessage && (
+                <p className="text-green-600 text-center font-semibold mt-4">
+                  {successMessage}
+                </p>
+              )}
             </form>
           </div>
         </div>
@@ -318,21 +420,30 @@ export default function Contact() {
 
           {/* WhatsApp */}
 
-          <div className="bg-white rounded-[28px] p-10 shadow hover:shadow-xl duration-300 text-center">
-            <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-              <FaWhatsapp className="text-4xl text-green-600" />
+          <a
+            href="https://wa.me/919263467595?text=Hello%20Digital%20Growth%20Agency,%20I%20want%20to%20know%20about%20your%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <div className="bg-white rounded-[28px] p-10 shadow hover:shadow-xl hover:scale-105 duration-300 text-center cursor-pointer">
+              <div className="w-20 h-30 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                <FaWhatsapp className="text-4xl text-green-600" />
+              </div>
+
+              <h3 className="text-2xl font-bold mt-6 text-[#071B52]">
+                WhatsApp
+              </h3>
+
+              <p className="text-gray-600 mt-4 leading-8">
+                Message us on WhatsApp for quick assistance.
+              </p>
+
+              <button className="mt-6 text-green-600 font-semibold hover:text-green-700">
+                +91 92634 67595
+              </button>
             </div>
-
-            <h3 className="text-2xl font-bold mt-6 text-[#071B52]">WhatsApp</h3>
-
-            <p className="text-gray-600 mt-4 leading-8">
-              Message us on WhatsApp for quick assistance.
-            </p>
-
-            <button className="mt-6 text-green-600 font-semibold">
-              +1 (234) 567-8900
-            </button>
-          </div>
+          </a>
 
           {/* Meeting */}
 
@@ -370,7 +481,7 @@ export default function Contact() {
             </p>
 
             <button className="mt-6 text-blue-600 font-semibold break-all">
-              info@digitalgrowthagency.com
+              sharadprofessional123@gmail.com
             </button>
           </div>
         </div>

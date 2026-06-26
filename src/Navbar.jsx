@@ -9,8 +9,8 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3">
           {/* Replace with your logo */}
           <img
-            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-            className="h-12"
+            src="digit.png"
+            className="h-40"
             alt="logo"
           />
 
@@ -106,6 +106,16 @@ export default function Navbar() {
             }
           >
             Contact
+          </NavLink>
+          <NavLink
+            to="/ecommerce"
+            className={({ isActive }) =>
+              isActive
+                ? "text-blue-600 border-b-2 border-blue-600 pb-1"
+                : "text-slate-700 hover:text-blue-600 transition"
+            }
+          >
+            E-Commerce
           </NavLink>
         </nav>
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -14,7 +15,11 @@ export default function Footer() {
         <div className="grid lg:grid-cols-5 gap-10">
           {/* Logo */}
           <div>
-            <img src="/logo.png" alt="Digital Growth" className="h-12 mb-6" />
+            <img
+              src="digit.png"
+              className="h-20 w-45 rounded object-cover"
+              alt="logo"
+            />
 
             <p className="text-gray-300 leading-8">
               We provide end-to-end digital solutions to help businesses build a
@@ -23,7 +28,7 @@ export default function Footer() {
 
             <div className="flex gap-4 mt-6">
               <a
-                href="https://facebook.com/hyy_ashi_ydv"
+                href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition"
@@ -41,7 +46,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/ashish-yadav-b0257239a"
+                href="https://www.linkedin.com/in/sharadgupta2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition"
@@ -50,7 +55,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.youtube.com/@goluyaduvanshirao"
+                href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition"
@@ -80,36 +85,73 @@ export default function Footer() {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
+
+              <li>
+                <Link to="/ecommerce">Ecommerce</Link>
+              </li>
             </ul>
           </div>
+{/* Services */}
+<div>
+  <h3 className="font-bold text-lg mb-5">OUR SERVICES</h3>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-bold text-lg mb-5">OUR SERVICES</h3>
+  <ul className="space-y-3 text-gray-300">
+    <li>
+      <Link to="/services" state={{ service: "web-development" }}>
+        Web Development
+      </Link>
+    </li>
 
-            <ul className="space-y-3 text-gray-300">
-              <li>Web Development</li>
-              <li>E-commerce Development</li>
-              <li>App Development</li>
-              <li>SEO Services</li>
-              <li>Local SEO</li>
-              <li>Graphic Designing</li>
-              <li>SaaS Applications</li>
-            </ul>
-          </div>
+    <li>
+      <Link to="/services" state={{ service: "e-commerce" }}>
+        E-Commerce Development
+      </Link>
+    </li>
 
+    <li>
+      <Link to="/services" state={{ service: "app-development" }}>
+        App Development
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" state={{ service: "seo-services" }}>
+        SEO Services
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" state={{ service: "local-seo" }}>
+        Local SEO
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" state={{ service: "graphic-designing" }}>
+        Graphic Designing
+      </Link>
+    </li>
+
+    
+  </ul>
+</div>
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-5">CONTACT US</h3>
+            <h3 className="font-bold text-lg mb-3">CONTACT US</h3>
 
-            <div className="space-y-5 text-gray-300">
-              <p>📍 123, Business Street, New York, NY 10001, USA</p>
+            <div className="space-y-2 text-gray-200">
+              <p>
+                📍 H8HQ+MX6 Krishna Complex, Maharaja Agrasen Marg, Nithari
+                Village, Sector 31, Noida, Uttar Pradesh 201303
+              </p>
+              <p>📞 +91 92634 67595
+                
+              </p>
+              <p className="leading-5">✉ sharadprofessional123@gmail.com</p>
 
-              <p>📞 +1 (234) 567-8900</p>
+              
 
-              <p>✉ info@digitalgrowthagency.com</p>
-
-              <p>🌐 www.digitalgrowthagency.com</p>
+              <p>🌐 https://digital-makenting-react-website.vercel.app/ </p>
             </div>
           </div>
 
