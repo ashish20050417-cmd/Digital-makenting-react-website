@@ -160,8 +160,14 @@ export default function Contact() {
                   </h3>
 
                   <p className="text-gray-600 mt-1">
+<<<<<<< HEAD
                     H8HQ+MX6 Krishna Complex, Maharaja Agrasen Marg, <br />
                     Nithari Village, Sector 31, Noida, Uttar Pradesh 201303
+=======
+                    123, Business Street,
+                    <br />
+                    New York, NY 10001, USA
+>>>>>>> 8971233 (Updated website)
                   </p>
                 </div>
               </div>
@@ -418,8 +424,16 @@ export default function Contact() {
             </button>
           </div>
 
-          {/* WhatsApp */}
+          {/* WhatsApp Card */}
+<a
+  href="https://wa.me/919263467595?text=Hello%20Digital%20Growth%20Agency,%20I%20want%20to%20know%20about%20your%20services."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group"
+>
+  <div className="bg-white rounded-3xl border border-gray-200 p-8 text-center shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
 
+<<<<<<< HEAD
           <a
             href="https://wa.me/919263467595?text=Hello%20Digital%20Growth%20Agency,%20I%20want%20to%20know%20about%20your%20services."
             target="_blank"
@@ -444,7 +458,38 @@ export default function Contact() {
               </button>
             </div>
           </a>
+=======
+    {/* Icon */}
+    <div className="w-24 h-24 mx-auto rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition">
+      <FaWhatsapp className="text-5xl text-green-600" />
+    </div>
 
+    {/* Title */}
+    <h3 className="text-2xl font-bold text-[#071B52] mt-6">
+      WhatsApp Support
+    </h3>
+
+    {/* Description */}
+    <p className="text-gray-600 mt-4 leading-7 flex-1">
+      Chat with our support team for instant assistance product listing, and all
+      e-commerce services.
+    </p>
+
+    {/* Phone Number */}
+    <div className="mt-6">
+      <span className="inline-flex items-center rounded-full bg-green-100 text-green-700 px-5 py-2 font-semibold">
+        📞 +91 92634 67595
+      </span>
+    </div>
+>>>>>>> 8971233 (Updated website)
+
+    {/* Button */}
+    <button className="mt-6 w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-all duration-300">
+      Chat on WhatsApp →
+    </button>
+
+  </div>
+</a>
           {/* Meeting */}
 
           <div className="bg-white rounded-[28px] p-10 shadow hover:shadow-xl duration-300 text-center">

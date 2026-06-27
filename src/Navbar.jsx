@@ -9,9 +9,15 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3">
           {/* Replace with your logo */}
           <img
+<<<<<<< HEAD
             src="digit.png"
             className="h-40"
             alt="logo"
+=======
+              src="digit.png"
+              className="h-18 w-30 rounded object-cover"
+              alt="logo"
+>>>>>>> 8971233 (Updated website)
           />
 
           <div>

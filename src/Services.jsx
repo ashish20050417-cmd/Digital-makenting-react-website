@@ -307,7 +307,7 @@ export default function Services() {
       {/* ================= FIRST ROW ================= */}
 
       <section className="max-w-[1450px] mx-auto px-8 pb-20">
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {firstRow.map((item, index) => (
             <div
               key={index}
@@ -354,7 +354,7 @@ export default function Services() {
       {/* ================= SECOND ROW ================= */}
 
       <section className="max-w-[1450px] mx-auto px-8 pb-20">
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {secondRow.map((item, index) => (
             <div
               key={index}

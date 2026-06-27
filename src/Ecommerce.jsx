@@ -276,6 +276,7 @@ export default function Ecommerce() {
               services.
             </p>
           </div>
+<<<<<<< HEAD
 
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {ecommerceServices.map((service, index) => (
@@ -294,21 +295,67 @@ export default function Ecommerce() {
                 </p>
 
                 <ul className="space-y-3">
+=======
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {ecommerceServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-lg p-8
+             hover:shadow-2xl hover:-translate-y-2
+             transition duration-300
+             flex flex-col
+             h-[470px]"
+              >
+                {/* Icon */}
+                <div className="text-5xl mb-4">{service.icon}</div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-slate-900 min-h-[64px]">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-7 mt-3 min-h-[90px]">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-3 flex-1 mt-4">
+>>>>>>> 8971233 (Updated website)
                   {service.features.map((item, i) => (
                     <li
                       key={i}
                       className="flex items-center gap-3 text-gray-700"
                     >
                       <span className="text-green-600 font-bold">✔</span>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8971233 (Updated website)
                       {item}
                     </li>
                   ))}
                 </ul>
 
+<<<<<<< HEAD
                 <button
                   onClick={() => setSelectedService(service)}
                   className="mt-8 w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:scale-105 transition"
+=======
+                {/* Button */}
+                <button
+                  onClick={() => setSelectedService(service)}
+                  className="mt-1 w-full
+               bg-gradient-to-r
+               from-blue-600
+               to-purple-600
+               text-white
+               py-3
+               rounded-xl
+               font-semibold
+               hover:scale-105
+               transition"
+>>>>>>> 8971233 (Updated website)
                 >
                   Learn More →
                 </button>

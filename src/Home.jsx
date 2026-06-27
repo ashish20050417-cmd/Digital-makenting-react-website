@@ -176,6 +176,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-7 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <Link
+<<<<<<< HEAD
               key={index}
               to={service.title === "E-Commerce" ? "/ecommerce" : "/services"}
               className="block bg-white border border-gray-200 rounded-[22px] p-7 text-center hover:-translate-y-2 hover:shadow-xl duration-300"
@@ -183,15 +184,30 @@ export default function Home() {
               <div className="w-20 h-20 rounded-full mx-auto mb-6 bg-blue-100 flex items-center justify-center text-4xl">
                 {service.icon}
               </div>
+=======
+  key={index}
+  to={service.title === "E-Commerce" ? "/ecommerce" : "/services"}
+  className="group bg-white border border-gray-200 rounded-[22px]
+             p-7 flex flex-col h-[360px]
+             hover:-translate-y-2 hover:shadow-xl duration-300"
+>
+  {/* Icon */}
+  <div className="w-20 h-20 rounded-full mx-auto mb-6 bg-blue-100 flex items-center justify-center text-4xl">
+    {service.icon}
+  </div>
+>>>>>>> 8971233 (Updated website)
 
-              <h3 className="text-[22px] font-bold text-[#071B52]">
-                {service.title}
-              </h3>
+  {/* Title */}
+  <h3 className="text-[22px] font-bold text-[#071B52] text-center min-h-[60px]">
+    {service.title}
+  </h3>
 
-              <p className="text-gray-500 mt-4 leading-7 text-[15px]">
-                {service.desc}
-              </p>
+  {/* Description */}
+  <p className="text-gray-500 mt-4 leading-7 text-[15px] text-center flex-1">
+    {service.desc}
+  </p>
 
+<<<<<<< HEAD
               <button
                 type="button"
                 className="mt-6 text-blue-600 font-semibold cursor-pointer"
@@ -199,6 +215,16 @@ export default function Home() {
                 Learn More →
               </button>
             </Link>
+=======
+  {/* Button */}
+  <button
+    type="button"
+    className="mt-6 text-blue-600 font-semibold group-hover:text-purple-600 transition"
+  >
+    Learn More →
+  </button>
+</Link>
+>>>>>>> 8971233 (Updated website)
           ))}
         </div>
       </section>

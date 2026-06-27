@@ -17,7 +17,11 @@ export default function Footer() {
           <div>
             <img
               src="digit.png"
+<<<<<<< HEAD
               className="h-20 w-45 rounded object-cover"
+=======
+              className="h-20 w-30 rounded object-cover"
+>>>>>>> 8971233 (Updated website)
               alt="logo"
             />
 
@@ -113,6 +117,7 @@ export default function Footer() {
         App Development
       </Link>
     </li>
+<<<<<<< HEAD
 
     <li>
       <Link to="/services" state={{ service: "seo-services" }}>
@@ -150,10 +155,52 @@ export default function Footer() {
               <p className="leading-5">✉ sharadprofessional123@gmail.com</p>
 
               
+=======
 
-              <p>🌐 https://digital-makenting-react-website.vercel.app/ </p>
-            </div>
-          </div>
+    <li>
+      <Link to="/services" state={{ service: "seo-services" }}>
+        SEO Services
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" state={{ service: "local-seo" }}>
+        Local SEO
+      </Link>
+    </li>
+
+    <li>
+      <Link to="/services" state={{ service: "graphic-designing" }}>
+        Graphic Designing
+      </Link>
+    </li>
+>>>>>>> 8971233 (Updated website)
+
+    
+  </ul>
+</div>
+        {/* Contact */}
+<div>
+  <h3 className="font-bold text-lg mb-3">CONTACT US</h3>
+
+  <div className="space-y-2 text-gray-200">
+    <p>
+      📍 H8HQ+MX6 Krishna Complex, Maharaja Agrasen Marg,
+      Nithari Village, Sector 31, Noida,
+      Uttar Pradesh 201303
+    </p>
+
+    <p>📞 +91 92634 67595</p>
+
+    <p className="leading-5">
+      ✉ sharadprofessional123@gmail.com
+    </p>
+
+    <p>
+      🌐 https://digital-makenting-react-website.vercel.app/
+    </p>
+  </div>
+</div>
 
           {/* Newsletter */}
           <div>
